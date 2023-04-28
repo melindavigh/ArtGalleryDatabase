@@ -28,14 +28,14 @@ engine = create_engine(url)  # sql connection
 
 
 
-# print("1. Display name and ID of Artist who use “oil paint” as a medium for their artwork")
-# with engine.connect() as con:
-#      rs = con.execute(text("""SELECT DISTINCT   A.artistID, A.artistName
-#                 FROM     Artist AS A, Artwork AS R
-#                 WHERE    A.artistID=R.artistID AND R.medium='oil paint'"""))
-#      for row in rs:
-#          print(row)
-# print()
+print("1. Display name and ID of Artist who use “oil paint” as a medium for their artwork")
+with engine.connect() as con:
+     rs = con.execute(text("""SELECT DISTINCT   A.artistID, A.artistName
+                FROM     Artist AS A, Artwork AS R
+                WHERE    A.artistID=R.artistID AND R.medium='oil paint'"""))
+     for row in rs:
+         print(row)
+print()
 #
 # print("2. Display name of Customers, Transaction ID, and transactionPrice who purchase artwork between the range of $50000000 - $100000000")
 # with engine.connect() as con:
@@ -56,25 +56,25 @@ engine = create_engine(url)  # sql connection
 #         print(row)
 # print()
 #
-# print("4. Display name and ID of artists who doesn’t create artwork in the ‘realism’ genre ")
-# with engine.connect() as con:
-#     rs4 = con.execute(text("""SELECT  artistName, artistID
-#         FROM Artist AS A
-#         WHERE  artistID   NOT IN  (SELECT  artistID
-#                                    FROM   Artwork
-#                                    WHERE  genre = 'Realism')"""))
-#     for row in rs4:
-#         print(row)
-# print()
+print("4. Display name and ID of artists who doesn’t create artwork in the ‘realism’ genre ")
+with engine.connect() as con:
+    rs4 = con.execute(text("""SELECT  artistName, artistID
+        FROM Artist AS A
+        WHERE  artistID   NOT IN  (SELECT  artistID
+                                   FROM   Artwork
+                                   WHERE  genre = 'Realism')"""))
+    for row in rs4:
+        print(row)
+print()
 #
-# print("5. Display the number of exhibits each artwork has been to sorted by their titles")
-# with engine.connect() as con:
-#     rs6 = con.execute(text("""SELECT  artTitle, COUNT(DISTINCT exhibitID) AS ExhibitCount
-#             FROM   Artwork
-#             GROUP BY  artTitle"""))
-#     for row in rs6:
-#         print(row)
-# print()
+print("5. Display the number of exhibits each artwork has been to sorted by their titles")
+with engine.connect() as con:
+    rs6 = con.execute(text("""SELECT  artTitle, COUNT(DISTINCT exhibitID) AS ExhibitCount
+            FROM   Artwork
+            GROUP BY  artTitle"""))
+    for row in rs6:
+        print(row)
+print()
 #
 # print("6. Display the total revenue each exhibit has generated per exhibitID")
 # with engine.connect() as con:
@@ -107,12 +107,12 @@ with engine.connect() as con:
         print(row)
 print()
 #
-# print("8. Display the names and count of all the artists who have been to the most exhibits sorted by the artist name. ")
-# # with engine.connect() as con:
-#     rs8 = con.execute(text("""SELECT A.artistName, COUNT(E.exhibitID) AS MostArt
+print("8. Display the names and count of all the artists who have been to the most exhibits sorted by the artist name. ")
+# with engine.connect() as con:
+# rs8 = con.execute(text("""SELECT A.artistName, COUNT(E.exhibitID) AS MostArt
 # 	    FROM  Artist AS A, Exhibit AS E, Registered AS G
 # 	    WHERE A.artistID = G.artistID AND G.exhibitID = E.exhibitID;
 # 	    GROUP BY A.artistName"""))
-#     for row in rs8:
+# for row in rs8:
 #         print(row)
 # print()
