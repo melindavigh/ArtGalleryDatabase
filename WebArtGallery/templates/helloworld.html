@@ -2,99 +2,135 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" >
 <head>
+<style>
+    body {
+    background-image: url("static/img/bluesplash.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    }
 
+        table {
+            margin: 0 auto;
+            font-size: large;
+            border: 1px solid black;
+        }
+
+        h1 {
+            text-align: center;
+            color: #006600;
+            font-size: xx-large;
+            font-family: 'Gill Sans', 'Gill Sans MT',
+            ' Calibri', 'Trebuchet MS', 'sans-serif';
+        }
+
+        td {
+            background-color: #E4F5D4;
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            font-weight: bold;
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        td {
+            font-weight: lighter;
+        }
+</style>
 <title> Hello World! My name is Melinda </title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <link href="static/css/main.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 
+
 <body>
     {{name}}
-	<div style= "background-color:#f4f9fc; width:975px">
-	</div>
-	<div id ="banner" style= "padding:5px; background-color: #c4d0cc; border:0; border-spacing:0; width:975px; height:570px;">
-		<p style="margin-top:27px; color:white; font-family: serif; letter-spacing: 3px; font-size: 45px;"><img src="{{ url_for('static', filename='img/museum.jpeg') }}" style="width:925px; height:auto; margin-left:25px; margin-right: auto; margin-top:-20px; line-height: 70px;" alt="art gallery with dark green colored walls and golden frames artworks hung up"/><br/></p>
-		<p style="font-family: serif; color: whitesmoke; font-size: 55px; margin-left:140px; margin-right:auto; margin-top:-400px; letter-spacing: 4px;">Welcome to my Art Gallery</p>
+<!--    <div style= "background-color:white; width:985px">-->
+	<div id ="banner" style= "width:975px; height:570px;">
+		<p style="margin-top:27px; color:white; font-family: Serif; letter-spacing: 3px; font-size: 45px;"><img src="{{ url_for('static', filename='img/bluegallerysmall2.jpeg') }}" style="width:1525px; height:auto; margin-left: -300px; margin-top: -30px" alt="art gallery with dark green colored walls and golden frames artworks hung up"/><br/></p>
+		<p style="font-family: impact; color: white; font-size: 55px; margin-left: -45px; margin-right:auto; margin-top:-150px; letter-spacing: 4px;">Art Gallery</p>
+        <p style="font-family: serif; color: white; font-size: 30px; margin-left:-45px; margin-right:auto; margin-top:-65px; letter-spacing: 2px;">Life through the eyes of an artist.</p>
 	</div>
 
-    <h2>Choose one of the queries below that you'd like to run:</h2>
+    <h2 style ="color: white; margin-top: -280px">Choose one of the queries below that you'd like to run:</h2>
 	<form name = "myForm" action = "" method = "post">
-    	<input type="radio" name="onechoice" value="queery 1"/> <span style="font-family: serif;color: black; font-size:16px;"> 1. Display name and ID of Artist who use
-		<select name="mediumList" onchange="dropDown()" style="font-family: serif; font-size:16px; color:gray; background-color: #f4f9fc;">
-			<option value="none">--choose a medium--</option>
-			<option value="acrylic paint">acrylic paint</option>
-<!--			<option value="">water color</option>-->
-			<option value="oil paint">oil paint</option>
-<!--			<option value="">graffite</option>-->
-<!--			<option value="">charcoal</option>-->
-<!--			<option value="">color pencils</option>-->
-<!--			<option value="">pastels</option>-->
-<!--			<option value="">oil pastels</option>-->
-<!--			<option value="">mixed media</option>-->
-<!--			<option value="">pen</option>-->
-<!--			<option value="">print making</option>-->
-		</select> as a medium for their artwork</span>
+    	<input type="radio" name="onechoice" value="queery 1"/> <span style="font-family: serif;color: white; font-size:18px;"> 1. Display name and ID of Artist who use
+            <select name="mediumList" onchange="dropDown()" style="font-family: serif; font-size:16px; color:gray; background-color: white;">
+                <option value="none">--choose a medium--</option>
+                <option value="acrylic paint">acrylic paint</option>
+                <option value="oil paint">oil paint</option>
+                <option value="charcoal">charcoal</option>
+                <option value="colored pencils">colored pencils</option>
+                <option value="digital art">digital art</option>
+                <option value="ink">ink</option>
+                <option value="mixed media">mixed media</option>
+                <option value="pastels">pastels</option>
+                <option value="watercolor">watercolor</option>
+            </select> as a medium for their artwork</span>
     <br>
-		<input type="radio" name="onechoice" value="queery 2" /> <span style="font-family: serif;color: black; font-size: 16px;"> 2. Display name of Customers, Transaction ID, and transactionPrice who purchase artwork between the range of
-		<select names ="priceRanges" onchange="dropDown()" style="font-family: serif; font-size:16px; color:gray; background-color: #f4f9fc;">
-			<option>--choose a price range--</option>
-			<option>-$40,000,000</option>
-			<option>$40,000,000 - $65,000,000</option>
-			<option>$65,000,000 - $90,000,000</option>
-			<option>$90,000,000 - $120,000,000</option>
-			<option>$120,000,000+ </option>
+		<input type="radio" name="onechoice" value="queery 2" /> <span style="font-family: serif;color: white; font-size: 18px;"> 2. Display name of Customers, Transaction ID, and transactionPrice who purchase artwork between the range of
+		<select name ="priceRanges" onchange="dropDown()" style="font-family: serif; font-size:16px; color:gray; background-color: white;">
+			<option value="none">--choose a price range--</option>
+			<option value = "S.transactionPrice <40000000 ">-$40,000,000</option>
+			<option value = "S.transactionPrice >=40000000 AND S.transactionPrice<=65000000">$40,000,000 - $65,000,000</option>
+			<option value = "S.transactionPrice >=65000000 AND S.transactionPrice<=90000000">$65,000,000 - $90,000,000</option>
+			<option value = "S.transactionPrice >=90000000 AND S.transactionPrice<=120000000">$90,000,000 - $120,000,000</option>
+			<option value = "S.transactionPrice >120000000">$120,000,000+ </option>
 		</select></span><br>
-		<input type="radio" name="onechoice" value="queery 3" /> <span style="font-family: serif;color: black; font-size: 16px;"> 3. Count the number of transactions with price higher than $50,000,000 per artwork medium </span><br>
-		<input type="radio" name="onechoice" value="queery 4" /> <span style="font-family: serif;color: black; font-size: 16px;"> 4. Display name and ID of artists who doesn’t create artwork in the
-		<select names ="priceRanges" onchange="dropDown()" style="font-family: serif; font-size:16px; color:gray; background-color: #f4f9fc;">
-			<option>--choose a genre--</option>
-			<option> Abstract </option>
-			<option> Cubism </option>
-			<option> Futurism </option>
-			<option> Modern </option>
-			<option> Neo-Modern </option>
-			<option> Realism </option>
-			<option> Renaissance </option>
-			<option> Surrealism </option>
-		</select> genre </span><br>
-		<input type="radio" name="onechoice" value="queery 5" /> <span style="font-family: serif;color: black; font-size: 16px;"> 5. Display the number of exhibits each artwork has been sorted by their titles </span><br>
-		<input type="radio" name="onechoice" value="queery 6" /> <span style="font-family: serif;color: black; font-size: 16px;"> 6. Display the total revenue each exhibit has generated per exhibitID </span><br>
-		<input type="radio" name="onechoice" value="queery 7" /> <span style="font-family: serif;color: black; font-size: 16px;"> 7. We need a new queery here </span><br>
-		<input type="radio" name="onechoice" value="queery 8" /> <span style="font-family: serif;color: black; font-size: 16px;"> 8. Display the names and count of all the artists who have been to the most exhibits sorted by the artist name. </span><br>
-		<input type="radio" name="onechoice" value="queery 9" /> <span style="font-family: serif;color: black; font-size: 16px;"> 9. Display id and names of artists who have artworks registered in exhibit
-		<select names ="priceRanges" onchange="dropDown()" style="font-family: serif; font-size:16px; color:gray; background-color: #f4f9fc;">
-			<option>--choose an exhibit--</option>
-			<option>War Inna Babylon</option>
-			<option>Twinkly Flakes</option>
-			<option>Beautiful Passion</option>
-			<option>Sterling Views</option>
-			<option>Solid</option>
-			<option>Our North Is the South</option>
-			<option>B Side</option>
-			<option>The Torlonia Marbles</option>
-			<option>Strive</option>
-			<option>Forothermore</option>
-			<option>Matisse in the 1930s</option>
-			<option>Lokame Tharavadu</option>
-			<option>Masterpieces from Buckingal Palace</option>
-			<option>Grandious Movement</option>
-			<option>Liquid Ground</option>
-			<option>Chaim Soutine</option>
-			<option>We are opposite like that</option>
-			<option>Senga Nengudi</option>
-			<option>A Line of Beauty</option>
-			<option>Rosangela Renno</option>
-			<option>Fresh Up</option>
-			<option>Fragments of Epic Memory</option>
-			<option>Static range</option>
-			<option>Paintings on Paper</option>
-			<option>Forms</option>
-		</select></span><br>
-		<br/>&nbsp;<br/>
-
+		<input type="radio" name="onechoice" value="queery 3" /> <span style="font-family: serif;color: white; font-size: 18px;"> 3. Count the number of transactions with price higher than $50,000,000 per artwork medium </span><br>
+		<input type="radio" name="onechoice" value="queery 4" /> <span style="font-family: serif;color: white; font-size: 18px;"> 4. Display name and ID of artists who doesn’t create artwork in the
+            <select name ="genraRange" onchange="dropDown()" style="font-family: serif; font-size:18px; color:gray; background-color: white;">
+                <option value = "none">--choose a genre--</option>
+                <option value = "Abstract"> Abstract </option>
+                <option value = "Cubism"> Cubism </option>
+                <option value = "Futurism" > Futurism </option>
+                <option value = "Modern"> Modern </option>
+                <option value = "Neo-Modern"> Neo-Modern </option>
+                <option value = "Realism"> Realism </option>
+                <option value = "Renaissance"> Renaissance </option>
+                <option value = "Surrealism"> Surrealism </option>
+            </select> genre </span><br>
+		<input type="radio" name="onechoice" value="queery 5" /> <span style="font-family: serif;color: white; font-size: 18px;"> 5. Display the number of exhibits each artwork has been sorted by their titles </span><br>
+		<input type="radio" name="onechoice" value="queery 6" /> <span style="font-family: serif;color: white; font-size: 18px;"> 6. Display the total revenue each exhibit has generated per exhibitID </span><br>
+		<input type="radio" name="onechoice" value="queery 7" /> <span style="font-family: serif;color: white; font-size: 18px;"> 7. Display the location of the exhibit and artTitle for each artwork sorted by location </span><br>
+		<input type="radio" name="onechoice" value="queery 8" /> <span style="font-family: serif;color: white; font-size: 18px;"> 8. Display the names of the artists who went to more than 3 exhibits </span><br>
+		<input type="radio" name="onechoice" value="queery 9" /> <span style="font-family: serif;color: white; font-size: 18px;"> 9. Display id and names of artists who have artworks registered in exhibit
+            <select name ="exhibitList" onchange="dropDown()" style="font-family: serif; font-size:18px; color:gray; background-color: white;">
+                <option value = "none">--choose an exhibit--</option>
+                <option value = "War Inna Babylon">War Inna Babylon</option>
+                <option value = "Twinkly Flakes">Twinkly Flakes</option>
+                <option value = "Beautiful Passion">Beautiful Passion</option>
+                <option value = "Sterling Views">Sterling Views</option>
+                <option value = "Solid">Solid</option>
+                <option value = "Our North Is the South">Our North Is the South</option>
+                <option value = "B Side">B Side</option>
+                <option value = "The Torlonia Marbles">The Torlonia Marbles</option>
+                <option value = "Strive">Strive</option>
+                <option value = "Forothermore">Forothermore</option>
+                <option value = "Matisse in the 1930s">Matisse in the 1930s</option>
+                <option value = "Lokame Tharavadu">Lokame Tharavadu</option>
+                <option value = "Masterpieces from Buckingal Palace">Masterpieces from Buckingal Palace</option>
+                <option value = "Grandious Movement">Grandious Movement</option>
+                <option value = "Liquid Ground">Liquid Ground</option>
+                <option value = "Chaim Soutine">Chaim Soutine</option>
+                <option value = "We are opposite like that">We are opposite like that</option>
+                <option value = "Senga Nengudi">Senga Nengudi</option>
+                <option value = "A Line of Beauty">A Line of Beauty</option>
+                <option value = "Rosangela Renno">Rosangela Renno</option>
+                <option value = "Fresh Up">Fresh Up</option>
+                <option value = "Fragments of Epic Memory">Fragments of Epic Memory</option>
+                <option value = "Static range">Static range</option>
+                <option value = "Paintings on Paper">Paintings on Paper</option>
+                <option value = "Forms">Forms</option>
+            </select></span><br>
+		<br/>&nbsp<br/>
 
 		<p style="text-align: center;">
-		<input type ="submit" value = "Run" style="text-align: center" />
+		<input type ="submit" value = "Run" style="text-align: center; font-size: 20px" />
 		</p><br/>
 	</form>
 
