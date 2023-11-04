@@ -81,18 +81,11 @@ def display_function(queery):
             for x in row:
                 return_sting += "<td>" + str(x) + "</td>"
             return_sting += "</tr>"
-                    # """"<table>
-                    #     <tr>
-                    #         <th></th>
-                    #     </tr>
-                    #     <tr>
-                    #         <td></td>
-                    #     </tr>
-                    # </table>"""
             print(row)
         return_sting += "</table>" + "</body></html>"
 
     return return_sting
+#this is Flask decorater on the index function
 @app.route("/", methods = ['GET','POST'])
 def index():
     if request.method == 'POST':
@@ -136,9 +129,9 @@ def index():
 
         # sixth queery goes here
         elif query_data['onechoice'] == 'queery 6':
-            return display_function(f"""SELECT    E.exhibitID, sum(T.transactionPrice)AS TotalRev
-                FROM Exhibit AS E, SellTo AS S, Customer AS C, Transactions AS T
-                WHERE 	E.exhibitID = S.exhibitID AND S.customerID = C.CustomerID AND C.customerID = T.customerID
+            return display_function(f"""SELECT    E.exhibitID, sum(S.transactionPrice)AS TotalRev
+                FROM Exhibit AS E, SellTo AS S, Customer AS C
+                WHERE 	E.exhibitID = S.exhibitID AND S.customerID = C.CustomerID 
                 GROUP BY    E.exhibitID""")
 
         # seventh queery goes here
@@ -165,6 +158,7 @@ def index():
 
     return render_template("helloworld.html")
 
+#test- dont need this
 @app.route("/sayhello/<name>")
 def sayhello(name):
     return render_template("helloworld.html", name = name)

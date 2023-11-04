@@ -21,10 +21,10 @@ engine = create_engine(url)  # sql connection
 #     for row in rs:
 #         print(row)
 #
-# for table in ["Artwork", "Exhibit", "Customer", "Transactions", "Registered", "SellTo", "Artist"]:
-#     df = pd.read_excel('ArtGalleryDataBase copy.xlsx', sheet_name=table, skiprows=1) # reads from excel file, skips forst row cause we dont want it
-#     df.to_sql(table, engine, if_exists='replace', index=False) # this writes the tables to sql. It'll also update any changes we make to the excel file
-#     print(df)
+for table in ["Artwork", "Exhibit", "Customer", "Registered", "SellTo", "Artist"]:
+    df = pd.read_excel('ArtGalleryDataBase copy.xlsx', sheet_name=table, skiprows=1) # reads from excel file, skips forst row cause we dont want it
+    df.to_sql(table, engine, if_exists='replace', index=False) # this writes the tables to sql. It'll also update any changes we make to the excel file
+    print(df)
 # #
 #
 #
